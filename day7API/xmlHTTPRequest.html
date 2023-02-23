@@ -14,7 +14,7 @@
 
         let request = new XMLHttpRequest();
 
-        request.open("GET","https://api.github.com/users/shaikhaleem95");//URL DENA JO CHAHIA
+        request.open("GET","https://api.github.com/users/abdulazhar-cr");//URL DENA JO CHAHIA
 
         request.send();
         request.onload=()=>{
@@ -24,11 +24,16 @@
             {
                 const jsonData=JSON.parse(request.response);
                 console.log("jsonData",jsonData);
-                document.getElementById("avtar").src=jsonData.avatar_url;
+                document.getElementById
+                ("demo")
+               .innerHTML=`user name from server is ${jsonData.name}`;
+               document.getElementById("avatar").src=jsonData.avatar_url;
             }
             else
             {
-                document.getElementById("demo").innerHTML=`Error occured with status ${request.status} :: ${request.statusText}`;
+                document.getElementById
+                ("demo")
+                .innerHTML=`Error occured with status ${request.status} :: ${request.statusText}`;
 
 
             }

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-container {
+          display: flex;
+          background-color: DodgerBlue;
+        }
+        
+        .flex-container > div {
+          background-color: #f1f1f1;
+          margin: 10px;
+          padding: 20px;
+          font-size: 30px;
+        }
+        </style>
+        
+</head>
+<body>
+    
+    <h1>Create a API XMLHttpRequest Container</h1>
+
+    <div class="flex-container">
+      <div>
+        <p id="demo"></p>
+        <img src="" alt="image url" id="avatar">
+        <script>
+    
+            let request = new XMLHttpRequest();
+    
+            request.open("GET","https://api.github.com/users/abdulazhar-cr");//URL DENA JO CHAHIA
+    
+            request.send();
+            request.onload=()=>{
+                console.log(request);
+    
+                if(request.status===200)
+                {
+                    const jsonData=JSON.parse(request.response);
+                    console.log("jsonData",jsonData);
+                    document.getElementById
+                    ("demo")
+                   .innerHTML=`user name from server is ${jsonData.name}`;
+                   document.getElementById("avatar").src=jsonData.avatar_url;
+                }
+                else
+                {
+                    document.getElementById
+                    ("demo")
+                    .innerHTML=`Error occured with status ${request.status} :: ${request.statusText}`;
+    
+    
+                }
+                };
+    
+    
+        </script>
+      </div>
+      <div> <p id="demo1"></p>
+        <img src="" alt="image url" id="avatar1">
+        <script>
+    
+            let request1 = new XMLHttpRequest();
+    
+            request1.open("GET","https://api.github.com/users/shaikhaleem95");//URL DENA JO CHAHIA
+    
+            request1.send();
+            request1.onload=()=>{
+                console.log(request1);
+    
+                if(request1.status===200)
+                {
+                    const jsonData1=JSON.parse(request1.response);
+                    console.log("jsonData",jsonData1);
+                    document.getElementById
+                    ("demo1")
+                   .innerHTML=`user name from server is ${jsonData1.name}`;
+                   document.getElementById("avatar1").src=jsonData1.avatar_url;
+                }
+                else
+                {
+                    document.getElementById
+                    ("demo1")
+                    .innerHTML=`Error occured with status ${request1.status} :: ${request1.statusText}`;
+    
+    
+                }
+                };
+    
+    
+        </script></div>
+      <div> <p id="demo2"></p>
+        <img src="" alt="image url" id="avatar2">
+        <script>
+    
+            let request2 = new XMLHttpRequest();
+    
+            request2.open("GET","https://api.github.com/users/musharraf188");//URL DENA JO CHAHIA
+    
+            request2.send();
+            request2.onload=()=>{
+                console.log(request2);
+    
+                if(request2.status===200)
+                {
+                    const jsonData2=JSON.parse(request2.response);
+                    console.log("jsonData",jsonData2);
+                    document.getElementById
+                    ("demo2")
+                   .innerHTML=`user name from server is ${jsonData2.name}`;
+                   document.getElementById("avatar2").src=jsonData2.avatar_url;
+                }
+                else
+                {
+                    document.getElementById
+                    ("demo2")
+                    .innerHTML=`Error occured with status ${request2.status} :: ${request2.statusText}`;
+    
+    
+                }
+                };
+    
+    
+        </script></div>  
+    </div>
+    
+     
+    </body>
+    </html>
+    
+    
+    
