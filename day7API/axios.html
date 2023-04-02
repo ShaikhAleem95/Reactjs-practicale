@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+
+    <img src="" id="avatar0" alt="image url">
+    <p id="demo0"></p>
+
+    <img src="" id="avatar1" alt="image url">
+    <p id="demo1"></p>
+
+    <script>
+
+        axios
+        .get("https://api.github.com/users/shaikhaleem95")
+        .then((response)=>{
+            console.log(response);
+            if(response.status===200)
+            {
+                document.getElementById("demo0").innerHTML=response.data.name;
+                document.getElementById("avatar0").innerHTML=response.data.avatar_url;
+            }
+            else
+            {
+
+            }
+        }
+
+        );
+    </script>
+
+    
+</body>
+</html>
