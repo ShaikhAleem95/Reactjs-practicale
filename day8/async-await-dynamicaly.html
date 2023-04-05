@@ -11,22 +11,34 @@
     <img src="" alt="image url" id="avatar0">
     <p id="demo0"></p>
 
-
+<div id="workingarea"></div>
 
     <script>
 
-        
+     
+            
 
      async function fetchGitHubUsersDetails(){
-            const data = await fetch("https://dummyjson.com/products/1");
+        const workingareaelement=document.getElementById("workingarea");
+        for(let index=1; index < 10;index++){
+            const data = await fetch("https://dummyjson.com/products/"+ index);
+            console.log("data",data);
 
-               console.log("data",data);
+     
+
 
                if(data.status===200)
                {
                 const jsonData= await data.json();
-                document.getElementById("demo0").innerHTML=jsonData.title;
-                document.getElementById("avatar0").src=jsonData.thumbnail;
+                var imgElement=document.createElement("img");
+                imgElement.id="avatar"+index;
+                imgElement.src=jsonData.thumbnail
+                var pelement=document.createElement("p");
+                pelement.id="demo"+index;
+                pelement.innerHTML=jsonData.title
+                workingareaelement.append(imgElement,pelement);
+               // document.getElementById("demo0").innerHTML=jsonData.title;
+                //document.getElementById("avatar0").src=jsonData.thumbnail;
                 console.log("jsonData");
 
                }
@@ -39,6 +51,7 @@
     
     
                 }
+            }
           
         }
         fetchGitHubUsersDetails();

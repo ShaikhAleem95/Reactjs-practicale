@@ -18,7 +18,7 @@
     <script>
 
         axios
-        .get("https://api.github.com/users/shaikhaleem95")
+        .get(`https://api.github.com/users/${users[index]}abdulazhar-cr`)
         .then((response)=>{
             console.log(response);
             if(response.status===200)

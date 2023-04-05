@@ -8,8 +8,12 @@
 </head>
 <body>
 
-    <p id="demo"></p>
-        <img src="" alt="image url" id="avatar">
+    <p id="demo0"></p>
+        <img src="" alt="image url" id="avatar0">
+        <p id="demo1"></p>
+        <img src="" alt="image url" id="avatar1">
+        <p id="demo2"></p>
+        <img src="" alt="image url" id="avatar2">
 
 
   <script>
@@ -18,7 +22,12 @@
     //    console.log(Response);
     //  });
 
-    fetch ("https://api.github.com/users/shaikhaleem95").then((data)=>{
+
+    const users=["abdulazhar-cr","shaikhaleem95","musharraf188"];
+            for(let index=0; index < users.lenght;index++){
+
+
+    fetch (`https://api.github.com/users/${users[index]}`).then((data)=>{
 
         
     console.log("response data",data);
@@ -38,6 +47,7 @@
     }
     });
 
+}
 </script>
 </body>
 </html>

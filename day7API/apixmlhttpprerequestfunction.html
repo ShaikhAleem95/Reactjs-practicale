@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flex-container {
+          display: flex;
+          background-color: DodgerBlue;
+        }
+        
+        .flex-container > div {
+          background-color: #f1f1f1;
+          margin: 10px;
+          padding: 20px;
+          font-size: 30px;
+        }
+        </style>
+        
+</head>
+<body>
+    
+    <h1>Create a API XMLHttpRequest Container</h1>
+
+    <div class="flex-container">
+      <div>
+        <p id="demo"></p>
+        <img src="" alt="image url" id="avatar">
+        <p id="demo1"></p>
+        <img src="" alt="image url" id="avatar1">
+        <p id="demo2"></p>
+        <img src="" alt="image url" id="avatar2">
+        <script>
+            
+            const users=["abdulazhar-cr","shaikhaleem95","musharraf188"];
+            for(let index=0; index < users.lenght;index++){
+
+
+            let request = new XMLHttpRequest();
+    
+            request.open("GET",`https://api.github.com/users/${users[index]}abdulazhar-cr`);//URL DENA JO CHAHIA
+    
+            request.send();
+            request.onload=()=>{
+                console.log(request);
+    
+                if(request.status===200)
+                {
+                    const jsonData=JSON.parse(request.response);
+                    console.log("jsonData",jsonData);
+                    document.getElementById
+                    ("demo"+index)
+                   .innerHTML=`user name from server is ${jsonData.name}`;
+                   document.getElementById("avatar"+index).src=jsonData.avatar_url;
+                }
+                else
+                {
+                    document.getElementById
+                    ("demo")
+                    .innerHTML=`Error occured with status ${request.status} :: ${request.statusText}`;
+    
+    
+                }
+                };
+    
+            }
+
+         </div>  
+    </div>
+    
+     
+    </body>
+    </html>
+    
+    
+    
